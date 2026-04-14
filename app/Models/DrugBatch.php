@@ -11,9 +11,10 @@ class DrugBatch extends Model
 
     protected $fillable = [
         'drug_id','supplier_id','batch_number','expired_at',
-        'purchase_price','quantity','stock'
+        'purchase_price','quantity','stock', 'clinic_id'
     ];
 
     public function drug() { return $this->belongsTo(Drug::class); }
     public function supplier() { return $this->belongsTo(Supplier::class); }
+    public function clinic() { return $this->belongsTo(Clinic::class); }
 }

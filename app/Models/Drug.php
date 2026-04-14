@@ -11,6 +11,8 @@ class Drug extends Model
 
     protected $fillable = [
         'name','description','function','side_effect','code',
-        'category','brand','dose','group','form','retail_price',
+        'category','brand','dose','group','form','retail_price', 'stock', 'price', 'clinic_id'
     ];
+
+    public function clinic() { return $this->belongsTo(Clinic::class); }
 }

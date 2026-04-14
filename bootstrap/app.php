@@ -13,10 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // Daftar route middleware alias di sini
+        $middleware->append(\App\Http\Middleware\IdentifyClinic::class);
+        
         $middleware->alias([
             'role' => CheckRole::class,
-            // Middleware lain jika perlu
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

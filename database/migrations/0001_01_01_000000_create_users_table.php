@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             // Tambahkan kolom role (enum)
-            $table->enum('role', ['admin', 'dokter', 'kasir'])->default('dokter');
+            $table->enum('role', ['admin', 'dokter', 'kasir', 'perawat', 'apoteker'])->default('dokter');
             $table->rememberToken();
             $table->timestamps();
         });

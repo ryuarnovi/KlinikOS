@@ -10,11 +10,16 @@ class Sale extends Model
     use HasFactory;
 
     protected $fillable = [
-        'invoice_no', 'sold_at', 'total', 'prescription_id'
+        'invoice_no', 'sold_at', 'total', 'prescription_id', 'clinic_id'
     ];
 
     public function prescription()
     {
         return $this->belongsTo(Prescription::class);
+    }
+
+    public function clinic()
+    {
+        return $this->belongsTo(Clinic::class);
     }
 }

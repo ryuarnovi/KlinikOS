@@ -9,5 +9,10 @@ class Supplier extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'contact', 'address'];
+    protected $fillable = ['name', 'contact', 'address', 'clinic_id'];
+
+    public function clinic()
+    {
+        return $this->belongsTo(Clinic::class);
+    }
 }

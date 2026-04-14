@@ -30,7 +30,17 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'clinic_id', // multi-tenant support
+        'has_role', // if needed, but role is string
     ];
+
+    /**
+     * Check if user has specific role
+     */
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
 
     /**
      * The attributes that should be hidden for serialization.

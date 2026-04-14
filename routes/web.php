@@ -19,12 +19,23 @@ Route::middleware([
         Route::get('/admin/dashboard', function () {
             return view('livewire.admin.dashboard');
         })->name('admin.dashboard');
-    Route::get('/admin/supplier', \App\Livewire\Admin\SupplierCrud::class)->name('livewire.admin.supplier');
-    Route::get('/admin/drug', \App\Livewire\Admin\DrugCrud::class)->name('livewire.admin.drug-crud');
-    Route::get('/admin/drugin', \App\Livewire\Admin\DrugIn::class)->name('livewire.admin.drug-in');
-    Route::get('/admin/drugout', \App\Livewire\Admin\DrugOut::class)->name('livewire.admin.drug-out');
-    Route::get('/admin/report', \App\Livewire\Admin\Report::class)->name('livewire.admin.report');
-    Route::get('/admin/users', \App\Livewire\Admin\UserCrud::class)->name('livewire.admin.users.index');
+        Route::get('/admin/supplier', \App\Livewire\Admin\SupplierCrud::class)->name('livewire.admin.supplier');
+        Route::get('/admin/drug', \App\Livewire\Admin\DrugCrud::class)->name('livewire.admin.drug-crud');
+        Route::get('/admin/drugin', \App\Livewire\Admin\DrugIn::class)->name('livewire.admin.drug-in');
+        Route::get('/admin/drugout', \App\Livewire\Admin\DrugOut::class)->name('livewire.admin.drug-out');
+        Route::get('/admin/report', \App\Livewire\Admin\Report::class)->name('livewire.admin.report');
+        Route::get('/admin/users', \App\Livewire\Admin\UserCrud::class)->name('livewire.admin.users.index');
+        // ERP SaaS: HR, CRM, Project, CustomField
+        Route::get('/admin/employees', function () { return 'Employee Management'; })->name('admin.employees');
+        Route::get('/admin/attendances', function () { return 'Attendance Management'; })->name('admin.attendances');
+        Route::get('/admin/leaves', function () { return 'Leave Management'; })->name('admin.leaves');
+        Route::get('/admin/customers', function () { return 'Customer Management'; })->name('admin.customers');
+        Route::get('/admin/projects', function () { return 'Project Management'; })->name('admin.projects');
+        Route::get('/admin/tasks', function () { return 'Task Management'; })->name('admin.tasks');
+        Route::get('/admin/custom-fields', function () { return 'Custom Field Management'; })->name('admin.custom-fields');
+        // ERP SaaS: Nurse & Pharmacist
+        Route::get('/admin/nurses', 'livewire.admin.nurse-crud')->name('admin.nurses');
+        Route::get('/admin/pharmacists', 'livewire.admin.pharmacist-crud')->name('admin.pharmacists');
     });
 
     Route::middleware(['auth', 'role:kasir'])->prefix('kasir')->group(function () {

@@ -9,7 +9,7 @@ class PrescriptionItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['prescription_id', 'drug_id', 'quantity', 'price_each'];
+    protected $fillable = ['prescription_id', 'drug_id', 'quantity', 'price_each', 'clinic_id'];
 
     public function prescription() { return $this->belongsTo(Prescription::class); }
     public function drug() { return $this->belongsTo(Drug::class); }
